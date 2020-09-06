@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RabbitMQ_Exaple_WortToPdf.Producer.Helpers.MemoryStreamHelpers.Abstract;
+using RabbitMQ_Exaple_WortToPdf.Producer.Helpers.MemoryStreamHelpers.Concrete;
+using RabbitMQ_Exaple_WortToPdf.Producer.Helpers.RabbitMQHelpers.Concrete;
+using RabbitMQ_Exaple_WortToPdf.Producer.Heplers.RabbitMQHelpers.Abstract;
 
 namespace RabbitMQ_Exaple_WortToPdf.Producer
 {
@@ -23,6 +27,8 @@ namespace RabbitMQ_Exaple_WortToPdf.Producer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IMQHelpers, MQHelpers>();
+            services.AddScoped<IMemoryStreamHelpers, MemoryStreamHelpers>();
             services.AddControllersWithViews();
         }
 

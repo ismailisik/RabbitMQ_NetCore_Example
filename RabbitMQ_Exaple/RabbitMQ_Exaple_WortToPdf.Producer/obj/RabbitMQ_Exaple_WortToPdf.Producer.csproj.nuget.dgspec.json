@@ -37,6 +37,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
